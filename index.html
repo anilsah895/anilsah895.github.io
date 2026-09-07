@@ -1,566 +1,450 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Anil Kumar Sah - AWS Certified ML Engineer Portfolio</title>
-    <!-- Load Tailwind CSS -->
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap" rel="stylesheet">
-    <style>
-        /* Custom scrollbar for better aesthetics on dark theme */
-        body {
-            font-family: 'Inter', sans-serif;
-            scroll-behavior: smooth;
-        }
-        .section-separator {
-            width: 100%;
-            height: 1px;
-            background: linear-gradient(to right, transparent, rgba(74, 222, 128, 0.5), transparent); /* Tailwind green-400 */
-        }
-        .card-project:hover {
-            transform: translateY(-4px);
-            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
-            transition: all 0.3s ease-in-out;
-        }
-        .header-bg {
-            background-color: #1a1a1a;
-            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -2px rgba(0, 0, 0, 0.1);
-        }
-        /* Custom size for the citation graphs */
-        .citation-graph {
-            max-width: 100px;
-            height: 50px;
-        }
-    </style>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Anil Kumar Sah — Machine Learning Engineer specializing in GenAI, NLP, recommendation systems, RAG, agentic AI, cloud ML and production automation.">
+  <meta name="theme-color" content="#0b0d10">
+  <title>Anil Kumar Sah — Machine Learning Engineer</title>
+  <style>
+    :root{
+      --bg:#0b0d10;--surface:#11151a;--surface-2:#151a20;--text:#f1f5f9;
+      --muted:#9aa5b1;--subtle:#68727e;--line:#252c34;--accent:#7dd3fc;
+      --accent-2:#a7f3d0;--max:1120px;--radius:16px
+    }
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{margin:0;background:var(--bg);color:var(--text);font:16px/1.7 Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif}
+    a{color:inherit;text-decoration:none}
+    a:hover{color:var(--accent)}
+    .wrap{width:min(var(--max),calc(100% - 40px));margin:auto}
+    .topbar{position:sticky;top:0;z-index:10;background:rgba(11,13,16,.88);backdrop-filter:blur(14px);border-bottom:1px solid rgba(255,255,255,.06)}
+    nav{height:68px;display:flex;align-items:center;justify-content:space-between}
+    .brand{font-weight:750;letter-spacing:-.02em}
+    .navlinks{display:flex;gap:26px;color:var(--muted);font-size:14px}
+    .navlinks a:hover{color:var(--text)}
+    .hero{padding:112px 0 100px;max-width:930px}
+    .eyebrow{color:var(--accent-2);font-size:13px;font-weight:750;letter-spacing:.14em;text-transform:uppercase}
+    h1{font-size:clamp(48px,8vw,82px);line-height:1.02;letter-spacing:-.055em;margin:16px 0 22px}
+    .hero h2{font-size:clamp(21px,3vw,30px);font-weight:500;color:#cbd5e1;margin:0 0 26px;letter-spacing:-.02em}
+    .lead{font-size:18px;color:var(--muted);max-width:820px}
+    .actions{display:flex;flex-wrap:wrap;gap:12px;margin-top:34px}
+    .btn{border:1px solid var(--line);padding:10px 15px;border-radius:9px;font-weight:650;font-size:14px;background:var(--surface)}
+    .btn.primary{background:var(--text);color:#0b0d10;border-color:var(--text)}
+    .btn:hover{border-color:#46515e;color:var(--text)}
+    .btn.primary:hover{color:#0b0d10;background:#dbe4ec}
+    .rule{height:1px;background:var(--line)}
+    section{padding:86px 0}
+    .section-head{display:grid;grid-template-columns:240px 1fr;gap:40px;margin-bottom:38px}
+    .section-label{color:var(--subtle);font-size:12px;font-weight:800;letter-spacing:.14em;text-transform:uppercase}
+    h2{font-size:34px;line-height:1.2;letter-spacing:-.035em;margin:0}
+    h3{font-size:20px;line-height:1.3;margin:0 0 8px}
+    p{margin:0}
+    .muted{color:var(--muted)}
+    .grid{display:grid;gap:16px}
+    .grid-3{grid-template-columns:repeat(3,1fr)}
+    .grid-2{grid-template-columns:repeat(2,1fr)}
+    .card{background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);padding:25px}
+    .card:hover{border-color:#37414c}
+    .metric{font-size:34px;font-weight:800;letter-spacing:-.04em;color:var(--text)}
+    .metric-label{color:var(--muted);font-size:14px;margin-top:5px}
+    .timeline{border-left:1px solid var(--line);margin-left:6px}
+    .role{position:relative;padding:0 0 54px 34px}
+    .role:last-child{padding-bottom:0}
+    .role:before{content:"";position:absolute;left:-5px;top:8px;width:9px;height:9px;border-radius:50%;background:var(--bg);border:1px solid #657180}
+    .role-head{display:flex;justify-content:space-between;gap:20px;align-items:flex-start}
+    .role-title{font-size:21px;font-weight:750}
+    .date{white-space:nowrap;color:var(--subtle);font-size:14px}
+    .company{color:var(--accent);font-size:14px;font-weight:650}
+    .role ul,.case ul{margin:18px 0 0;padding-left:20px;color:var(--muted)}
+    .role li,.case li{margin:8px 0}
+    .case{padding:30px}
+    .case-kicker{font-size:12px;color:var(--accent-2);font-weight:800;letter-spacing:.12em;text-transform:uppercase}
+    .case h3{font-size:25px;margin-top:8px}
+    .case p{color:var(--muted)}
+    .stack{display:flex;flex-wrap:wrap;gap:7px;margin-top:20px}
+    .tag{font-size:12px;color:#c7d0da;background:#0d1116;border:1px solid var(--line);padding:4px 8px;border-radius:999px}
+    .principles{display:grid;grid-template-columns:repeat(2,1fr);gap:1px;background:var(--line);border:1px solid var(--line);border-radius:var(--radius);overflow:hidden}
+    .principle{background:var(--surface);padding:28px}
+    .principle strong{display:block;margin-bottom:7px;font-size:16px}
+    .principle span{color:var(--muted);font-size:14px}
+    .links{display:flex;flex-wrap:wrap;gap:12px}
+    .linkcard{padding:18px 20px;border:1px solid var(--line);border-radius:12px;background:var(--surface);color:#d7dee6}
+    .linkcard small{display:block;color:var(--subtle);margin-top:2px}
+    .edu{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+    .pub-title{font-weight:700}
+    footer{border-top:1px solid var(--line);padding:60px 0 35px;color:var(--muted)}
+    .footer-row{display:flex;justify-content:space-between;gap:20px;align-items:center}
+    .small{font-size:13px}
+    @media(max-width:800px){
+      .navlinks{display:none}.hero{padding-top:80px}
+      .section-head{grid-template-columns:1fr;gap:12px}
+      .grid-3,.grid-2,.edu,.principles{grid-template-columns:1fr}
+      .role-head,.footer-row{flex-direction:column;align-items:flex-start}
+      .date{white-space:normal}
+    }
+  </style>
 </head>
-<body class="bg-gray-900 text-gray-100 antialiased">
 
-    <!-- Fixed Navigation Header -->
-    <nav id="navbar" class="header-bg fixed top-0 left-0 right-0 z-50 transition-all duration-300">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="flex justify-between h-16 items-center">
-                <div class="flex-shrink-0 text-xl font-bold text-teal-400">Anil Kr. Sah</div>
-                <div class="hidden md:block">
-                    <div class="ml-10 flex items-baseline space-x-4">
-                        <a href="#about" class="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">About</a>
-                        <a href="#experience" class="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Experience</a>
-                        <a href="#skills" class="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Skills</a>
-                        <a href="#credentials" class="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Credentials</a>
-                        <a href="#education" class="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Education</a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </nav>
-
-    <!-- Main Content Container -->
-    <main class="max-w-7xl mx-auto pt-16 px-4 sm:px-6 lg:px-8">
-
-        <!-- 1. HERO/ABOUT SECTION - UPDATED WITH PROFILE PICTURE -->
-        <section id="about" class="py-24 md:py-32 flex flex-col md:flex-row items-center justify-between">
-            
-            <!-- Text Content -->
-            <div class="md:w-3/4 order-2 md:order-1 mt-8 md:mt-0">
-                <h1 class="text-5xl sm:text-7xl font-extrabold tracking-tight text-white leading-tight">
-                    Anil Kumar <span class="text-teal-400">Sah</span>
-                </h1>
-                <h2 class="mt-4 text-2xl sm:text-3xl font-light text-gray-300">
-                    AWS Certified ML Engineer | <b class="font-bold text-yellow-400">Gold Medalist</b> in Cloud Computing
-                </h2>
-                <p class="mt-6 text-lg text-gray-400 max-w-3xl">
-                    AWS Certified Machine Learning Engineer and Gold Medalist in Cloud Computing with over 5 years of experience in ML, NLP, recommendation systems, and autonomous AI workflows. Proven expertise in building scalable ML pipelines, automating workflows, and translating business goals into AI-driven solutions. Skilled in deploying cloud-based AI solutions, developing agentic AI workflows, and delivering measurable business impact for startups and enterprises.
-                </p>
-
-                <!-- Social Links -->
-                <div class="mt-8 flex flex-wrap gap-4">
-                    <a href="https://www.linkedin.com/in/anil-sah777/" target="_blank" class="flex items-center space-x-2 text-gray-400 hover:text-teal-400 transition-colors duration-200" aria-label="LinkedIn Profile">
-                        <span class="text-2xl">🔗</span><span class="font-medium">LinkedIn</span>
-                    </a>
-                    <a href="https://scholar.google.com/citations?user=1SSSwTYAAAAJ&hl=en" target="_blank" class="flex items-center space-x-2 text-gray-400 hover:text-teal-400 transition-colors duration-200" aria-label="Google Scholar Profile">
-                        <span class="text-2xl">📚</span><span class="font-medium">Google Scholar</span>
-                    </a>
-                    <a href="https://github.com/anilsah895" target="_blank" class="flex items-center space-x-2 text-gray-400 hover:text-teal-400 transition-colors duration-200" aria-label="GitHub Profile">
-                        <span class="text-2xl">💻</span><span class="font-medium">GitHub</span>
-                    </a>
-                    <a href="https://www.kaggle.com/anilkrsah" target="_blank" class="flex items-center space-x-2 text-gray-400 hover:text-teal-400 transition-colors duration-200" aria-label="Kaggle Profile">
-                        <span class="text-2xl">📊</span><span class="font-medium">Kaggle</span>
-                    </a>
-                    <a href="https://stackoverflow.com/users/10222665/anil-sah" target="_blank" class="flex items-center space-x-2 text-gray-400 hover:text-teal-400 transition-colors duration-200" aria-label="Stack Overflow Profile">
-                        <span class="text-2xl">💬</span><span class="font-medium">Stack Overflow</span>
-                    </a>
-                </div>
-            </div>
-
-            <!-- Profile Picture Container -->
-            <div class="md:w-1/4 order-1 md:order-2 flex justify-center md:justify-end">
-                <img id="profile-pic" 
-                     src="https://scholar.googleusercontent.com/citations?view_op=medium_photo&user=1SSSwTYAAAAJ&citpid=4" 
-                     alt="Anil Kumar Sah Profile Picture" 
-                     class="w-40 h-40 object-cover rounded-full border-4 border-teal-400 shadow-xl">
-                <!-- NOTE: To use your Google Scholar image, replace the 'src' above with the direct URL of your profile picture. -->
-            </div>
-        </section>
-
-        <!-- Divider -->
-        <div class="section-separator my-12"></div>
-
-        <!-- 2. EXPERIENCE SECTION -->
-        <section id="experience" class="py-16">
-            <h3 class="text-4xl font-bold text-teal-400 mb-12 border-b-2 border-teal-400/50 pb-2">Selected Experience & Projects</h3>
-
-            <div class="space-y-16">
-                
-                <!-- Project 1: Financial Market Intelligence Agent (AnswerGen) -->
-                <article class="card-project bg-gray-800 p-6 rounded-xl shadow-lg hover:shadow-teal-500/20">
-                    <div class="flex justify-between items-start mb-4">
-                        <h4 class="text-3xl font-semibold text-white">AnswerGen/Marketing Tool (Financial Market Intelligence Agent)</h4>
-                        <span class="text-sm font-medium text-gray-400">ML Engineer</span>
-                    </div>
-                    <p class="text-gray-300 mb-4">Developed a domain-specific agent to generate custom, summarized financial and business intelligence research reports using LLM and continuous web scraping.</p>
-                    <ul class="list-disc ml-6 text-gray-400 space-y-2 mb-4">
-                        <li>Engineered an automated pipeline to extract web content from multiple sources (company websites, LinkedIn, Google News).</li>
-                        <li>Implemented a multi-agent orchestration workflow where a domain-specific LLM agent triggers crawler agents.</li>
-                        <li>Ensured data reliability and security by implementing <b class="text-white">IP rotation and Tor integration</b> to maintain anonymity.</li>
-                    </ul>
-                    <button onclick="openModal('project1')" class="text-teal-400 hover:text-teal-300 font-medium mt-2 flex items-center space-x-2">
-                        <span>View Project Details & Key Chart</span> 
-                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
-                            <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm-1-9V6h2v3h3v2h-3v3h-2v-3H6V9h3z" clip-rule="evenodd" />
-                        </svg>
-                    </button>
-                </article>
-
-                <!-- Project 2: Customer Recommendation Engine -->
-                <article class="card-project bg-gray-800 p-6 rounded-xl shadow-lg hover:shadow-teal-500/20">
-                    <div class="flex justify-between items-start mb-4">
-                        <h4 class="text-3xl font-semibold text-white">Customer Recommendation Engine (High-Scale Migration)</h4>
-                        <span class="text-sm font-medium text-gray-400">ML Engineer </span>
-                    </div>
-                    <p class="text-gray-300 mb-4">Developed an item recommendation system for restaurant customers, resulting in a research paper publication. Focused on scaling the solution for Big Data.</p>
-                    <ul class="list-disc ml-6 text-gray-400 space-y-2">
-                        <li>Migrated core recommendation logic from Julia to <b class="text-white">Pandas and PySpark</b> to handle large datasets and serve multiple clients simultaneously.</li>
-                        <li>Utilized <b class="text-white">PySpark FP-growth</b> for efficient, parallel generation of item-to-item and category-to-item recommendations across 100+ vendors.</li>
-                        <li><b class="text-white">Publication:</b> Work published in IEEE xplore: <a href="https://ieeexplore.ieee.org/abstract/document/10482175" target="_blank" class="text-teal-400 hover:underline">Predictive Modeling for Restaurant Menu Customization</a>.</li>
-                    </ul>
-                </article>
-
-                <!-- Project 3: MLOps & CI/CD (Arcspan) -->
-                <article class="card-project bg-gray-800 p-6 rounded-xl shadow-lg hover:shadow-teal-500/20">
-                    <div class="flex justify-between items-start mb-4">
-                        <h4 class="text-3xl font-semibold text-white">Arcspan (MLOps & CI/CD Pipeline Automation)</h4>
-                        <span class="text-sm font-medium text-gray-400">ML Engineer </span>
-                    </div>
-                    <p class="text-gray-300 mb-4">Focused on streamlining MLOps by implementing robust Continuous Integration and Deployment workflows for ML models.</p>
-                    <ul class="list-disc ml-6 text-gray-400 space-y-2">
-                        <li>Developed and configured <b class="text-white">AWS CodeBuild</b> projects and integrated <b class="text-white">CI/CD pipelines</b> to fully automate the build and deployment process.</li>
-                        <li>Collaborated with the development team to optimize build performance, ensuring rapid and reliable deployment cycles.</li>
-                    </ul>
-                </article>
-
-                <!-- Project 4: Autonomous AI Workflows -->
-                <article class="card-project bg-gray-800 p-6 rounded-xl shadow-lg hover:shadow-teal-500/20">
-                    <div class="flex justify-between items-start mb-4">
-                        <h4 class="text-3xl font-semibold text-white">Independent R&D: Agentic AI Workflows</h4>
-                        <span class="text-sm font-medium text-gray-400">Independent ML & Data Science</span>
-                    </div>
-                    <p class="text-gray-300 mb-4">Designed and prototyped cutting-edge autonomous LLM-based agents for advanced data tasks and decision-making.</p>
-                    <ul class="list-disc ml-6 text-gray-400 space-y-2">
-                        <li>Built PoCs for autonomous data scraping and reporting agents, complete with parallel execution and sophisticated error handling.</li>
-                        <li>Explored and implemented self-guided ML/AI solutions using prompt chaining and frameworks like <b class="text-white">LangChain</b> for multi-agent orchestration.</li>
-                        <li>Developed scalable ETL and data transformation layers to seamlessly feed structured and unstructured data into new ML workflows.</li>
-                    </ul>
-                </article>
-
-            </div>
-        </section>
-
-        <!-- Divider -->
-        <div class="section-separator my-12"></div>
-
-        <!-- 3. TECHNICAL SKILLS SECTION -->
-        <section id="skills" class="py-16">
-            <h3 class="text-4xl font-bold text-teal-400 mb-12 border-b-2 border-teal-400/50 pb-2">Technical Expertise (Skills)</h3>
-
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-
-                <!-- Skill Category 1: AI/ML & Data Science -->
-                <div class="bg-gray-800 p-6 rounded-xl shadow-lg">
-                    <h4 class="text-2xl font-semibold mb-4 text-white">AI / Machine Learning & Data</h4>
-                    <ul class="space-y-2 text-gray-400">
-                        <li class="flex items-center"><span class="text-teal-400 mr-2">✓</span>Python (Pandas, Scikit, NumPy, OpenCV)</li>
-                        <li class="flex items-center"><span class="text-teal-400 mr-2">✓</span>Recommendation Systems (FP-growth)</li>
-                        <li class="flex items-center"><span class="text-teal-400 mr-2">✓</span>NLP (Topic modeling with LDA)</li>
-                        <li class="flex items-center"><span class="text-teal-400 mr-2">✓</span>PySpark, Data Visualization</li>
-                    </ul>
-                </div>
-
-                <!-- Skill Category 2: MLOps & Cloud Infrastructure -->
-                <div class="bg-gray-800 p-6 rounded-xl shadow-lg">
-                    <h4 class="text-2xl font-semibold mb-4 text-white">Cloud & MLOps / DevOps</h4>
-                    <ul class="space-y-2 text-gray-400">
-                        <li class="flex items-center"><span class="text-teal-400 mr-2">✓</span>AWS Services (S3, EC2, Athena, Lambda, CodeBuild, CodeCommit)</li>
-                        <li class="flex items-center"><span class="text-teal-400 mr-2">✓</span>AWS SageMaker, Awswrangler, CloudWatch</li>
-                        <li class="flex items-center"><span class="text-teal-400 mr-2">✓</span>Docker</li>
-                        <li class="flex items-center"><span class="text-teal-400 mr-2">✓</span>Git, GitHub, CodeCommit, Bitbucket</li>
-                    </ul>
-                </div>
-
-                <!-- Skill Category 3: LLM & Specialized Tools -->
-                <div class="bg-gray-800 p-6 rounded-xl shadow-lg">
-                    <h4 class="text-2xl font-semibold mb-4 text-white">LLM / AI Agent & Data Ingestion</h4>
-                    <ul class="space-y-2 text-gray-400">
-                        <li class="flex items-center"><span class="text-teal-400 mr-2">✓</span>Langchain, OpenAI, Custom Search API</li>
-                        <li class="flex items-center"><span class="text-teal-400 mr-2">✓</span>Google’s Vertex AI, Agent Development</li>
-                        <li class="flex items-center"><span class="text-teal-400 mr-2">✓</span>Parsehub, Web Scraping (Advanced)</li>
-                        <li class="flex items-center"><span class="text-teal-400 mr-2">✓</span>SQL, Flask, Jupyter Notebook</li>
-                    </ul>
-                </div>
-
-            </div>
-        </section>
-
-        <!-- Divider -->
-        <div class="section-separator my-12"></div>
-
-        <!-- 4. CREDENTIALS (CERTIFICATIONS & PUBLICATIONS) SECTION - UPDATED WITH CITATION GRAPHS -->
-        <section id="credentials" class="py-16">
-            <h3 class="text-4xl font-bold text-teal-400 mb-12 border-b-2 border-teal-400/50 pb-2">Credentials & Publications</h3>
-
-            <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
-                <!-- Certifications -->
-                <div class="bg-gray-800 p-6 rounded-xl shadow-lg">
-                    <h4 class="text-2xl font-semibold mb-4 text-white flex items-center">
-                        Certifications
-                    </h4>
-                    <div class="space-y-4">
-                        <div class="border-l-4 border-teal-500 pl-4">
-                            <p class="text-xl font-medium text-white">AWS Certified Machine Learning – Specialty</p>
-                            <p class="text-gray-400">Valid: Dec 2022 - Dec 2025</p>
-                            <a href="https://www.credly.com/badges/c80684ce-c118-442b-a763-1e284918ab55/public_url" target="_blank" class="text-teal-400 hover:text-teal-300 text-sm font-medium">Verify Credly Badge &rarr;</a>
-                        </div>
-                        <div class="border-l-4 border-gray-500 pl-4">
-                            <p class="text-xl font-medium text-white">AWS Academy Graduate - Cloud Foundations</p>
-                            <a href="https://www.credly.com/badges/aeb96dbe-5e8f-408a-bc15-84358a605ae2/public_url" target="_blank" class="text-teal-400 hover:text-teal-300 text-sm font-medium">Verify Credly Badge &rarr;</a>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Publications - Emphasis on Impact/Citations -->
-                <div class="bg-gray-800 p-6 rounded-xl shadow-lg">
-                    <h4 class="text-2xl font-semibold mb-4 text-white">
-                        Publications (Academic Impact)
-                    </h4>
-                    <div class="space-y-4">
-                        
-                        <!-- Publication 1 -->
-                        <div class="flex border-l-4 border-yellow-500 pl-4 pr-2 items-center justify-between">
-                            <div class="flex-grow">
-                                <p class="text-xl font-medium text-white">Predictive Modeling for Restaurant Menu Customization...</p>
-                                <p class="text-gray-400 text-sm">IEEE xplore, 2024</p>
-                                <a href="https://ieeexplore.ieee.org/abstract/document/10482175" target="_blank" class="text-teal-400 hover:text-teal-300 text-sm font-medium">View Citation Metrics & Paper &rarr;</a>
-                            </div>
-                            <div class="flex-shrink-0 ml-4 text-center">
-                                <canvas id="chart1" class="citation-graph" width="100" height="50"></canvas>
-                                <p class="text-xs text-yellow-300 font-bold">Total: 2</p>
-                            </div>
-                        </div>
-
-                        <!-- Publication 2 -->
-                        <div class="flex border-l-4 border-yellow-500 pl-4 pr-2 items-center justify-between">
-                            <div class="flex-grow">
-                                <p class="text-xl font-medium text-white">Anomaly-Based Intrusion Detection in Network Traffic...</p>
-                                <p class="text-gray-400 text-sm">IEEE xplore, 2024</p>
-                                <a href="https://scholar.google.com/citations?view_op=view_citation&hl=en&user=1SSSwTYAAAAJ&citation_for_view=1SSSwTYAAAAJ:d1gkVwhDpl0C" target="_blank" class="text-teal-400 hover:text-teal-300 text-sm font-medium">View Citation Metrics & Paper &rarr;</a>
-                            </div>
-                            <div class="flex-shrink-0 ml-4 text-center">
-                                <canvas id="chart2" class="citation-graph" width="100" height="50"></canvas>
-                                <p class="text-xs text-yellow-300 font-bold">Total: 5</p>
-                            </div>
-                        </div>
-
-                        <!-- Publication 3 -->
-                        <div class="flex border-l-4 border-yellow-500 pl-4 pr-2 items-center justify-between">
-                            <div class="flex-grow">
-                                <p class="text-xl font-medium text-white">Dermatological Diseases Classification Using Image Processing...</p>
-                                <p class="text-gray-400 text-sm">IEEE Xplore, 2019</p>
-                                <a href="https://scholar.google.com/citations?view_op=view_citation&hl=en&user=1SSSwTYAAAAJ&citation_for_view=1SSSwTYAAAAJ:u5HHmVD_uO8C" target="_blank" class="text-teal-400 hover:text-teal-300 text-sm font-medium">View Citation Metrics & Paper &rarr;</a>
-                            </div>
-                            <div class="flex-shrink-0 ml-4 text-center">
-                                <canvas id="chart3" class="citation-graph" width="100" height="50"></canvas>
-                                <p class="text-xs text-yellow-300 font-bold">Total: 27+</p>
-                            </div>
-                        </div>
-
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Divider -->
-        <div class="section-separator my-12"></div>
-
-        <!-- 5. EDUCATION SECTION - UPDATED WITH VERIFICATION LINKS -->
-        <section id="education" class="py-16">
-            <h3 class="text-4xl font-bold text-teal-400 mb-12 border-b-2 border-teal-400/50 pb-2">Education</h3>
-            <div class="space-y-8">
-                <div class="bg-gray-800 p-6 rounded-xl shadow-lg flex flex-col md:flex-row justify-between items-start">
-                    <div>
-                        <p class="text-2xl font-semibold text-white">M.Tech Cloud Computing</p>
-                        <p class="text-xl text-teal-400">SRM institute of science and technology, SRM University</p>
-                        <p class="text-lg text-gray-400 font-bold mt-2">Achievement: Gold Medalist</p>
-                        <!-- Verification Links (FIXED FACEBOOK LINK) -->
-                        <div class="mt-3 flex flex-wrap gap-4 text-sm">
-                            <p class="text-yellow-300 font-medium">External Verification:</p>
-                            <a href="https://www.facebook.com/officialroutineofnepalbanda/posts/achievement-engineer-anil-kumar-sah-from-chandrapur-rautahat-receives-a-gold-med/943676187794278/" target="_blank" class="text-teal-400 hover:text-teal-300 flex items-center space-x-1">
-                                <span>Facebook Post</span>
-                            </a>
-                            <a href="https://www.instagram.com/p/DCJSBvBytyf/" target="_blank" class="text-teal-400 hover:text-teal-300 flex items-center space-x-1">
-                                <span>Instagram Post</span>
-                            </a>
-                        </div>
-                    </div>
-                    <span class="text-gray-400 mt-2 md:mt-0 md:text-right">2022 - 2024</span>
-                </div>
-                <div class="bg-gray-800 p-6 rounded-xl shadow-lg flex flex-col md:flex-row justify-between items-start">
-                    <div>
-                        <p class="text-2xl font-semibold text-white">Bachelor’s in Electronics and Communication Engineering</p>
-                        <p class="text-xl text-teal-400">IOE, Pulchowk Campus, TU</p>
-                    </div>
-                    <span class="text-gray-400 mt-2 md:mt-0 md:text-right">2015 - 2019</span>
-                </div>
-            </div>
-        </section>
-
-    </main>
-    
-    <!-- Project Modal for Detailed View -->
-    <div id="project-modal" class="fixed inset-0 bg-gray-900 bg-opacity-95 z-50 hidden overflow-y-auto" onclick="closeModal()">
-        <div class="max-w-4xl mx-auto my-12 p-8 bg-gray-800 rounded-xl shadow-2xl relative" onclick="event.stopPropagation()">
-            <button onclick="closeModal()" class="absolute top-4 right-4 text-gray-300 hover:text-teal-400 text-3xl font-light">&times;</button>
-            <h3 id="modal-title" class="text-4xl font-bold text-teal-400 mb-4"></h3>
-            <span id="modal-timeline" class="text-sm font-medium text-gray-400 mb-6 block"></span>
-            <div id="modal-content" class="text-lg text-gray-300 space-y-6">
-                <!-- Content will be injected here -->
-            </div>
-            <div class="mt-8 text-center">
-                 <button onclick="closeModal()" class="bg-gray-700 hover:bg-gray-600 text-white font-bold py-2 px-4 rounded-lg transition-colors duration-200">Close Detail View</button>
-            </div>
-        </div>
+<body>
+<header class="topbar">
+  <nav class="wrap">
+    <a class="brand" href="#top">Anil Kumar Sah</a>
+    <div class="navlinks">
+      <a href="#experience">Experience</a>
+      <a href="#work">Selected Work</a>
+      <a href="#approach">Approach</a>
+      <a href="#research">Research</a>
+      <a href="#education">Education</a>
     </div>
-    <!-- END Modal -->
+  </nav>
+</header>
 
-    <!-- Footer -->
-    <footer id="contact" class="bg-gray-800 mt-20 py-10">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-            <h4 class="text-3xl font-bold text-white mb-4">Let's Connect</h4>
-            <p class="text-gray-400 mb-6 max-w-xl mx-auto">I am actively seeking roles where I can leverage my expertise in scalable ML and Agentic AI workflows to deliver measurable business impact.</p>
+<main id="top">
+  <div class="wrap">
 
-            <div class="flex justify-center space-x-6">
-                <!-- Contact Links (Using LinkedIn as primary contact link) -->
-                <a href="https://www.linkedin.com/in/anil-sah777/" target="_blank" class="bg-teal-500 hover:bg-teal-600 text-gray-900 font-bold py-3 px-6 rounded-lg transition-colors duration-200 shadow-lg shadow-teal-500/50">
-                    Connect on LinkedIn
-                </a>
-            </div>
+    <section class="hero">
+      <div class="eyebrow">Machine Learning Engineer · GenAI · NLP</div>
+      <h1>Building AI systems that move from prototype to production.</h1>
+      <h2>LLM applications · RAG · Agentic AI · Recommendation Systems · Cloud ML</h2>
+      <p class="lead">
+        Machine Learning Engineer with 5+ years of experience across ML, NLP, recommendation systems,
+        autonomous AI workflows, and cloud-based AI delivery. I work across the system—from data ingestion
+        and model workflows to deployment, automation, and production support—with a focus on practical,
+        measurable outcomes.
+      </p>
 
-            <p class="mt-8 text-sm text-gray-500">&copy; 2024 Anil Kumar Sah. ML Engineer Portfolio.</p>
+      <div class="actions">
+        <a class="btn primary" href="https://anilsah895.github.io/" target="_blank" rel="noopener">Portfolio</a>
+        <a class="btn" href="https://scholar.google.com/citations?user=1SSSwTYAAAAJ" target="_blank" rel="noopener">Google Scholar</a>
+        <a class="btn" href="https://github.com/anilsah895" target="_blank" rel="noopener">GitHub</a>
+        <a class="btn" href="https://ieeexplore.ieee.org/abstract/document/10482175" target="_blank" rel="noopener">Research</a>
+      </div>
+    </section>
+
+    <div class="rule"></div>
+
+    <section>
+      <div class="grid grid-3">
+        <div class="card"><div class="metric">5+</div><div class="metric-label">Years across ML, NLP & AI systems</div></div>
+        <div class="card"><div class="metric">300+</div><div class="metric-label">Web sources handled in automated ingestion workflows</div></div>
+        <div class="card"><div class="metric">100+</div><div class="metric-label">Vendors supported by recommendation workflows</div></div>
+      </div>
+    </section>
+
+    <div class="rule"></div>
+
+    <section id="experience">
+      <div class="section-head">
+        <div class="section-label">01 · Experience</div>
+        <div>
+          <h2>Production ownership, not just model development.</h2>
+          <p class="muted" style="margin-top:14px">
+            A career spanning ML engineering, GenAI applications, data automation, MLOps, recommendations,
+            cloud deployment, client delivery, and technical troubleshooting.
+          </p>
         </div>
-    </footer>
+      </div>
 
-    <script>
-        // Data for the project modal
-        const projectsData = {
-            'project1': {
-                title: 'AnswerGen/Marketing Tool (Financial Market Intelligence Agent)',
-                timeline: 'ML Engineer',
-                details: `
-                    <p class="text-white font-semibold">Project Overview: Automated Business Intelligence Agent</p>
-                    <p>Designed and deployed a highly autonomous, domain-specific AI agent capable of generating custom financial research reports. This system utilizes a multi-layered approach combining Large Language Models (LLMs) with robust web scraping to deliver real-time, actionable business intelligence.</p>
+      <div class="timeline">
 
-                    <h5 class="text-xl font-semibold text-teal-300 mt-4">Technical Implementation & Key Results:</h5>
-                    <ul class="list-disc ml-6 text-gray-400 space-y-2">
-                        <li><b class="text-white">Multi-Agent Orchestration:</b> Developed a custom LLM agent that intelligently structures search queries and orchestrates parallel data extraction tasks across multiple specialized crawler agents (using LangChain-like principles).</li>
-                        <li><b class="text-white">Data Reliability & Anonymity:</b> Integrated advanced network libraries with <b class="text-white">IP rotation and Tor integration</b> to successfully bypass bot detection and maintain continuous, anonymous web scraping across company websites, news feeds, and professional social media (LinkedIn, etc.).</li>
-                        <li><b class="text-white">Scalable Pipeline:</b> Engineered the pipeline using Python for maximum concurrency and deployed it using AWS services (Lambda/EC2) to ensure 24/7 continuous monitoring and report generation.</li>
-                        <li><b class="text-white">Visualization/Chart Example (Mock Data):</b> <p class="pt-4 pb-2 text-center text-gray-100">Project Workflow Efficiency Gains</p>
-                            <div class="bg-gray-900 p-4 rounded-lg">
-                                <!-- Placeholder for a key chart or visualization, representing the project's complexity/result -->
-                                <canvas id="projectChart" width="400" height="200"></canvas>
-                                <p class="text-xs text-gray-500 mt-2 text-center">Mock Chart: Comparison of Manual vs. Agent-Driven Report Generation Time.</p>
-                            </div>
-                        </li>
-                    </ul>
-                `
-            }
-        };
+        <article class="role">
+          <div class="role-head">
+            <div>
+              <div class="role-title">Consultant ML Engineer</div>
+              <div class="company">Australia · Remote Projects</div>
+            </div>
+            <div class="date">Jun 2025 – Present</div>
+          </div>
+          <ul>
+            <li>Deliver ML and AI solutions across NLP, recommendation systems, web scraping, and automation.</li>
+            <li>Build end-to-end ML pipelines, deploy models on cloud platforms, and optimize workflows around client requirements.</li>
+            <li>Provide technical guidance to startups and SMEs on AI-driven automation.</li>
+          </ul>
+        </article>
 
-        // --- CITATION CHART DRAWING FUNCTION ---
-        /**
-         * Draws a simple bar chart to represent yearly citations for a publication.
-         * @param {string} canvasId - The ID of the canvas element.
-         * @param {number[]} citations - Array of mock citation counts (e.g., [10, 8, 5, 4]).
-         */
-        function drawCitationChart(canvasId, citations) {
-            const canvas = document.getElementById(canvasId);
-            if (!canvas) return;
+        <article class="role">
+          <div class="role-head">
+            <div>
+              <div class="role-title">Independent ML & Data Science Projects</div>
+              <div class="company">Remote</div>
+            </div>
+            <div class="date">Feb 2025 – May 2025</div>
+          </div>
+          <ul>
+            <li>Designed and experimented with autonomous LLM agents for data collection, summarization, and decision-making.</li>
+            <li>Built ML prototypes and automation pipelines spanning NLP, recommendation systems, and web scraping.</li>
+            <li>Explored prompt chaining, LangChain, multi-agent orchestration, scalable ETL, and failure-aware automation.</li>
+          </ul>
+        </article>
 
-            const ctx = canvas.getContext('2d');
-            const width = canvas.width;
-            const height = canvas.height;
-            const padding = 5;
-            const chartHeight = height - padding * 2;
-            const chartWidth = width - padding * 2;
-            const maxCitation = Math.max(...citations, 1); // Ensure max is at least 1
-            const barCount = citations.length;
-            const barGap = 4;
-            const barWidth = (chartWidth - (barCount - 1) * barGap) / barCount;
-            
-            // Clear canvas
-            ctx.clearRect(0, 0, width, height);
+        <article class="role">
+          <div class="role-head">
+            <div>
+              <div class="role-title">ML Engineer</div>
+              <div class="company">Fusemachines Nepal</div>
+            </div>
+            <div class="date">Feb 2020 – May 2025</div>
+          </div>
+          <ul>
+            <li>Built production-oriented ML, GenAI, data ingestion, recommendation, and MLOps solutions across multiple client engagements.</li>
+            <li>Worked on financial intelligence, automated research, large-scale scraping, recommendation engines, healthcare workflows, and media search.</li>
+            <li>Led phases of client projects, supported engineers and DevOps during deployment/debugging, and translated client requirements into technical delivery.</li>
+          </ul>
+        </article>
 
-            // Draw bars
-            citations.forEach((citation, index) => {
-                const normalizedHeight = (citation / maxCitation) * chartHeight;
-                const x = padding + index * (barWidth + barGap);
-                const y = height - padding - normalizedHeight;
-                
-                // Bar color (Yellow for citations)
-                ctx.fillStyle = '#F59E0B'; // Tailwind yellow-500
-                ctx.fillRect(x, y, barWidth, normalizedHeight);
-            });
-            
-            // Draw baseline (X-axis)
-            ctx.strokeStyle = '#4B5563'; // gray-600
-            ctx.beginPath();
-            ctx.moveTo(padding, height - padding);
-            ctx.lineTo(width - padding, height - padding);
-            ctx.stroke();
-        }
+      </div>
+    </section>
 
+    <div class="rule"></div>
 
-        // --- MODAL FUNCTIONS ---
-        function openModal(projectId) {
-            const data = projectsData[projectId];
-            if (!data) return;
+    <section id="work">
+      <div class="section-head">
+        <div class="section-label">02 · Selected Work</div>
+        <div>
+          <h2>Systems I have actually built.</h2>
+          <p class="muted" style="margin-top:14px">
+            The portfolio focuses on the engineering problem and system boundary rather than repeating the same resume bullets.
+          </p>
+        </div>
+      </div>
 
-            document.getElementById('modal-title').innerText = data.title;
-            document.getElementById('modal-timeline').innerText = data.timeline;
-            document.getElementById('modal-content').innerHTML = data.details;
-            document.getElementById('project-modal').classList.remove('hidden');
-            document.body.style.overflow = 'hidden'; // Prevent scrolling the background
+      <div class="grid grid-2">
 
-            // Initialize the mock chart inside the modal
-            initializeProjectChart();
-        }
+        <article class="card case">
+          <div class="case-kicker">GenAI · Agentic Systems</div>
+          <h3>Financial Market Intelligence Agent</h3>
+          <p>
+            An automated research workflow for generating company and competitor intelligence from online sources.
+          </p>
+          <ul>
+            <li>Parallel crawling of company sites, LinkedIn, Facebook, and Google News sources.</li>
+            <li>Domain-specific agents trigger crawler agents from subqueries, summarize relevant information, and aggregate the final report.</li>
+            <li>Designed around practical ingestion challenges including website blocking, retries, and source-level processing.</li>
+          </ul>
+          <div class="stack"><span class="tag">LLMs</span><span class="tag">Agents</span><span class="tag">Web Scraping</span><span class="tag">Parallel Processing</span></div>
+        </article>
 
-        function closeModal() {
-            document.getElementById('project-modal').classList.add('hidden');
-            document.body.style.overflow = 'auto'; // Re-enable scrolling
-        }
+        <article class="card case">
+          <div class="case-kicker">Data Engineering · Automation</div>
+          <h3>300+ Source Data Ingestion Pipeline</h3>
+          <p>
+            Automated extraction and transformation infrastructure for feeding structured and unstructured data into downstream ML workflows.
+          </p>
+          <ul>
+            <li>Created templates for 300+ websites using ParseHub.</li>
+            <li>Connected scraping automation with transformation layers and data-engineering workflows.</li>
+            <li>Prepared extracted data for downstream categorization and ML use cases.</li>
+          </ul>
+          <div class="stack"><span class="tag">ParseHub</span><span class="tag">ETL</span><span class="tag">Python</span><span class="tag">Data Transformation</span></div>
+        </article>
 
-        function initializeProjectChart() {
-            const ctx = document.getElementById('projectChart');
-            if (ctx) {
-                // Simple Canvas drawing for a mock efficiency bar chart
-                const canvas = ctx;
-                const c = canvas.getContext('2d');
-                
-                const width = canvas.width;
-                const height = canvas.height;
-                const barWidth = 60;
-                const chartHeight = height - 40;
-                const barX1 = width / 4 - barWidth / 2;
-                const barX2 = 3 * width / 4 - barWidth / 2;
-                
-                // Clear previous drawings
-                c.clearRect(0, 0, width, height);
-                
-                // Draw Axis
-                c.strokeStyle = '#374151'; // gray-700
-                c.beginPath();
-                c.moveTo(20, 20);
-                c.lineTo(20, height - 20);
-                c.lineTo(width - 20, height - 20);
-                c.stroke();
-                
-                // Data points (mock: hours required)
-                const manualTime = 80; // Manual
-                const agentTime = 15;  // Agent
-                const maxTime = 100;
-                
-                // Normalize heights
-                const h1 = (manualTime / maxTime) * chartHeight;
-                const h2 = (agentTime / maxTime) * chartHeight;
+        <article class="card case">
+          <div class="case-kicker">Recommendation Systems · Big Data</div>
+          <h3>Customer Recommendation Engine</h3>
+          <p>
+            Recommendation system for restaurant and airport-menu use cases, designed to operate across many vendors.
+          </p>
+          <ul>
+            <li>Migrated recommendation logic from Julia to Pandas and PySpark for scale.</li>
+            <li>Used FP-Growth for category-to-item and item-to-item recommendations.</li>
+            <li>Supported parallel extraction and recommendation generation across 100+ vendors.</li>
+          </ul>
+          <div class="stack"><span class="tag">PySpark</span><span class="tag">FP-Growth</span><span class="tag">Pandas</span><span class="tag">Recommendations</span></div>
+        </article>
 
-                // Draw Manual Bar (blue/gray)
-                c.fillStyle = '#4B5563'; // gray-600
-                c.fillRect(barX1, chartHeight + 20 - h1, barWidth, h1);
-                c.fillStyle = '#E5E7EB'; // text color
-                c.fillText('Manual (80h)', barX1, chartHeight + 35 - h1);
-                
-                // Draw Agent Bar (teal)
-                c.fillStyle = '#2DD4BF'; // teal-400
-                c.fillRect(barX2, chartHeight + 20 - h2, barWidth, h2);
-                c.fillStyle = '#E5E7EB'; // text color
-                c.fillText('Agent (15h)', barX2, chartHeight + 35 - h2);
-            }
-        }
+        <article class="card case">
+          <div class="case-kicker">Cloud ML · Search · NLP</div>
+          <h3>News & Media Intelligence Pipeline</h3>
+          <p>
+            Media-data pipeline for ingesting unstructured content and powering search, summarization, and recommendation workflows.
+          </p>
+          <ul>
+            <li>Ingested PDF, HTML, and TXT content into Vertex AI Search and Dialogflow CX.</li>
+            <li>Prepared NDJSON datasets, categorized content, indexed data in GCS, and created vector-search indexes.</li>
+            <li>Deployed embedding models to Vertex AI endpoints for online and batch prediction.</li>
+          </ul>
+          <div class="stack"><span class="tag">Vertex AI</span><span class="tag">Vector Search</span><span class="tag">Dialogflow CX</span><span class="tag">Embeddings</span></div>
+        </article>
 
+        <article class="card case">
+          <div class="case-kicker">MLOps · AWS</div>
+          <h3>CI/CD & Deployment Automation</h3>
+          <p>
+            Engineering support for reliable ML/software delivery using AWS developer tooling.
+          </p>
+          <ul>
+            <li>Configured AWS CodeBuild projects and CI/CD workflows.</li>
+            <li>Diagnosed build failures and improved deployment reliability.</li>
+            <li>Worked with engineering teams to optimize build and deployment cycles.</li>
+          </ul>
+          <div class="stack"><span class="tag">AWS</span><span class="tag">CodeBuild</span><span class="tag">CodeCommit</span><span class="tag">CI/CD</span></div>
+        </article>
 
-        // --- MAIN INITIALIZATION ---
-        document.addEventListener('DOMContentLoaded', () => {
-            const projects = document.querySelectorAll('.card-project');
+        <article class="card case">
+          <div class="case-kicker">Healthcare · Product Engineering</div>
+          <h3>Healthcare Workflow Support</h3>
+          <p>
+            Product support and feature development for clinical-documentation workflows.
+          </p>
+          <ul>
+            <li>Led support and feature development for referral letters and sick notes.</li>
+            <li>Debugged product issues and contributed to decisions around enhancements.</li>
+            <li>Worked at the boundary between technical implementation and domain requirements.</li>
+          </ul>
+          <div class="stack"><span class="tag">NLP</span><span class="tag">Healthcare</span><span class="tag">Product Engineering</span></div>
+        </article>
 
-            // 1. Hover effects
-            projects.forEach(project => {
-                project.addEventListener('mouseover', () => {
-                    project.style.backgroundColor = '#252525'; /* Slightly lighter gray */
-                });
-                project.addEventListener('mouseout', () => {
-                    project.style.backgroundColor = '#1f2937'; /* Tailwind bg-gray-800 */
-                });
-            });
+      </div>
+    </section>
 
-            // 2. Citation Chart Drawing
-            // Mock data for yearly citations (simulating academic growth)
-            const publicationData = [
-                { id: 'chart1', citations: [1, 1] }, // Recent paper
-                { id: 'chart2', citations: [2, 2, 1] },
-                { id: 'chart3', citations: [10, 8, 5, 4] } // Older, more cited paper
-            ];
-            
-            publicationData.forEach(item => {
-                drawCitationChart(item.id, item.citations);
-            });
+    <div class="rule"></div>
 
+    <section id="approach">
+      <div class="section-head">
+        <div class="section-label">03 · Engineering Approach</div>
+        <div>
+          <h2>What makes the profile senior.</h2>
+          <p class="muted" style="margin-top:14px">
+            The strongest signal is not a long technology list. It is the ability to own the path from ambiguous problem to reliable system.
+          </p>
+        </div>
+      </div>
 
-            // 3. Intersection Observer for scroll-spy effect
-            const sections = document.querySelectorAll('section');
-            const navLinks = document.querySelectorAll('#navbar a');
+      <div class="principles">
+        <div class="principle">
+          <strong>End-to-end ownership</strong>
+          <span>Data ingestion → transformation → ML/LLM workflow → deployment → debugging and production support.</span>
+        </div>
+        <div class="principle">
+          <strong>System thinking</strong>
+          <span>Comfort working across data pipelines, model workflows, cloud services, automation, APIs, and downstream products.</span>
+        </div>
+        <div class="principle">
+          <strong>Applied GenAI</strong>
+          <span>LLM applications, autonomous agents, prompt chaining, multi-agent orchestration, summarization, and domain-specific research workflows.</span>
+        </div>
+        <div class="principle">
+          <strong>Scale & reliability</strong>
+          <span>Parallel execution, large-source ingestion, distributed processing, CI/CD, failure handling, and cloud deployment.</span>
+        </div>
+        <div class="principle">
+          <strong>Business translation</strong>
+          <span>Turning requirements from marketing, healthcare, media, restaurant, and startup contexts into implementable AI workflows.</span>
+        </div>
+        <div class="principle">
+          <strong>Technical leadership</strong>
+          <span>Leading project phases, supporting engineers, collaborating with DevOps, mentoring, and troubleshooting undocumented systems.</span>
+        </div>
+      </div>
+    </section>
 
-            const observer = new IntersectionObserver((entries) => {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting) {
-                        navLinks.forEach(link => link.classList.remove('bg-gray-700', 'text-white'));
-                        const currentId = entry.target.id;
-                        const correspondingLink = document.querySelector(`a[href="#${currentId}"]`);
-                        if (correspondingLink) {
-                            correspondingLink.classList.add('bg-gray-700', 'text-white');
-                        }
-                    }
-                });
-            }, {
-                rootMargin: "-50% 0px -50% 0px"
-            });
+    <div class="rule"></div>
 
-            sections.forEach(section => {
-                observer.observe(section);
-            });
-        });
-    </script>
+    <section>
+      <div class="section-head">
+        <div class="section-label">04 · Technical Stack</div>
+        <div>
+          <h2>Tools I use to ship ML systems.</h2>
+        </div>
+      </div>
+
+      <div class="grid grid-3">
+        <div class="card"><h3>ML & GenAI</h3><p class="muted">LLMs · LLM fine-tuning · Prompt Engineering · LangChain · OpenAI APIs · Deep Agents · autonomous AI workflows</p></div>
+        <div class="card"><h3>Data & ML</h3><p class="muted">Python · PySpark · Pandas · NumPy · Scikit-learn · SQL · ETL · Recommendation Systems · NLP</p></div>
+        <div class="card"><h3>Cloud & MLOps</h3><p class="muted">AWS EC2 · S3 · Athena · Lambda · SageMaker · CodeBuild · CodeCommit · CloudWatch · GCP Vertex AI · Docker</p></div>
+        <div class="card"><h3>AI Applications</h3><p class="muted">FastAPI · Flask · Web Scraping · ParseHub · OpenCV · Data Visualization · Vector Search</p></div>
+        <div class="card"><h3>Engineering</h3><p class="muted">GitHub · Bitbucket · CI/CD · scalable data pipelines · automation · debugging · deployment support</p></div>
+        <div class="card"><h3>Rapid Prototyping</h3><p class="muted">Copilot · Antigravity · prompt-driven development · experimentation with emerging AI tooling</p></div>
+      </div>
+    </section>
+
+    <div class="rule"></div>
+
+    <section id="research">
+      <div class="section-head">
+        <div class="section-label">05 · Research</div>
+        <div>
+          <h2>Research that connects ML with applied systems.</h2>
+        </div>
+      </div>
+
+      <div class="grid">
+        <a class="linkcard" href="https://ieeexplore.ieee.org/abstract/document/10482175" target="_blank" rel="noopener">
+          <div class="pub-title">Predictive Modeling for Restaurant Menu Customization: An FP-Growth Algorithm-Based Solution</div>
+          <small>IEEE Xplore · 2024 · Recommendation Systems</small>
+        </a>
+        <a class="linkcard" href="https://scholar.google.com/citations?view_op=view_citation&hl=en&user=1SSSwTYAAAAJ&citation_for_view=1SSSwTYAAAAJ:d1gkVwhDpl0C" target="_blank" rel="noopener">
+          <div class="pub-title">Anomaly-Based Intrusion Detection in Network Traffic using Machine Learning: A Comparative Study Using Decision Trees and Random Forests</div>
+          <small>IEEE Xplore · 2024 · Machine Learning</small>
+        </a>
+        <a class="linkcard" href="https://ieeexplore.ieee.org/abstract/document/8974487" target="_blank" rel="noopener">
+          <div class="pub-title">Dermatological Diseases Classification Using Image Processing and Deep Neural Network</div>
+          <small>IEEE Xplore · 2019 · 27+ citations</small>
+        </a>
+      </div>
+    </section>
+
+    <div class="rule"></div>
+
+    <section id="education">
+      <div class="section-head">
+        <div class="section-label">06 · Education & Credentials</div>
+        <div>
+          <h2>Academic depth with production experience.</h2>
+        </div>
+      </div>
+
+      <div class="edu">
+        <div class="card">
+          <div class="eyebrow">2022 – 2024</div>
+          <h3 style="font-size:24px;margin-top:8px">M.Tech — Cloud Computing</h3>
+          <p class="muted">SRM Institute of Science and Technology</p>
+          <p style="margin-top:12px;color:var(--accent-2);font-weight:750">Gold Medalist</p>
+        </div>
+        <div class="card">
+          <div class="eyebrow">2015 – 2019</div>
+          <h3 style="font-size:24px;margin-top:8px">B.E. — Electronics & Communication Engineering</h3>
+          <p class="muted">IOE, Pulchowk Campus, TU</p>
+        </div>
+      </div>
+
+      <div class="grid grid-2" style="margin-top:16px">
+        <a class="linkcard" href="https://www.credly.com/badges/c80684ce-c118-442b-a763-1e284918ab55/public_url" target="_blank" rel="noopener">
+          <div class="pub-title">AWS Certified Machine Learning — Specialty</div>
+          <small>Dec 2022 – Dec 2025 · Verify credential</small>
+        </a>
+        <a class="linkcard" href="https://academy.parsehub.com/certificates/jdflpql4ms" target="_blank" rel="noopener">
+          <div class="pub-title">ParseHub Web Scraping — Advanced Certification</div>
+          <small>Verify certificate</small>
+        </a>
+        <a class="linkcard" href="https://coursera.org/share/2ce69045a70a4be7379aa95bcf53533c" target="_blank" rel="noopener">
+          <div class="pub-title">Applied Data Science with Python Specialization</div>
+          <small>Coursera · Certificate</small>
+        </a>
+        <a class="linkcard" href="https://www.coursera.org/account/accomplishments/certificate/SLBLNW3BTCYZ" target="_blank" rel="noopener">
+          <div class="pub-title">LangChain: Chat with Your Data</div>
+          <small>Coursera · Certificate</small>
+        </a>
+      </div>
+    </section>
+
+  </div>
+</main>
+
+<footer>
+  <div class="wrap footer-row">
+    <div>
+      <strong style="color:var(--text)">Anil Kumar Sah</strong>
+      <div class="small">Machine Learning Engineer · GenAI · NLP · Agentic AI</div>
+    </div>
+    <div class="links small">
+      <a href="https://scholar.google.com/citations?user=1SSSwTYAAAAJ" target="_blank" rel="noopener">Google Scholar</a>
+      <a href="https://github.com/anilsah895" target="_blank" rel="noopener">GitHub</a>
+      <a href="https://anilsah895.github.io/" target="_blank" rel="noopener">Portfolio</a>
+    </div>
+  </div>
+  <div class="wrap small" style="margin-top:28px;color:#58626d">© 2026 Anil Kumar Sah</div>
+</footer>
 </body>
 </html>
-
-
-
-
